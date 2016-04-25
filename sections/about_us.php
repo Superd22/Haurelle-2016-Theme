@@ -7,11 +7,11 @@
 
 			<!-- SECTION TITLE -->
 
-			<?php 
+			<?php
 			$zerif_aboutus_title = get_theme_mod('zerif_aboutus_title',__('About','zerif-lite'));
-			
+
 			if( !empty($zerif_aboutus_title) ):
-				echo '<h2 class="white-text">'.$zerif_aboutus_title.'</h2>';
+				echo '<h2>'.$zerif_aboutus_title.'</h2>';
 			endif;
 			?>
 
@@ -23,7 +23,7 @@
 
 				if( !empty($zerif_aboutus_subtitle) ):
 
-					echo '<div class="white-text section-legend">';
+					echo '<div class="section-legend">';
 
 						echo $zerif_aboutus_subtitle;
 
@@ -78,7 +78,7 @@
 
 			if( !empty($zerif_aboutus_text) ):
 
-				echo '<div class="col-lg-' . $colCount . ' col-md-' . $colCount . ' column zerif_about_us_center" data-scrollreveal="enter bottom after 0s over 1s">';
+				echo '<div class="col-lg-' . 8 . ' col-md-' . 8 . ' column zerif_about_us_center" data-scrollreveal="enter bottom after 0s over 1s">';
 
 						echo '<p>';
 
@@ -94,142 +94,7 @@
 
 		<!-- COLUMN 1 - SKILSS-->
 
-		<div class="col-lg-<?php echo $colCount; ?> col-md-<?php echo $colCount; ?> column zerif-rtl-skills ">
 
-			<ul class="skills" data-scrollreveal="enter right after 0s over 1s">
-
-				<!-- SKILL ONE -->
-
-				<li class="skill">
-
-					<?php
-
-						$zerif_aboutus_feature1_nr = get_theme_mod('zerif_aboutus_feature1_nr','80');
-
-						if( !empty($zerif_aboutus_feature1_nr) ):
-
-							echo '<div class="skill-count">';
-
-								echo '<input type="text" value="'.$zerif_aboutus_feature1_nr.'" data-thickness=".2" class="skill1" tabindex="-1">';
-
-							echo '</div>';
-
-						endif;
-
-						if( !empty($zerif_aboutus_feature1_title) ):
-							echo '<div class="section-legend">'.$zerif_aboutus_feature1_title.'</div>';
-						endif;
-
-						if( !empty($zerif_aboutus_feature1_text) ):
-							echo '<p>'.$zerif_aboutus_feature1_text.'</p>';
-						endif;
-
-					?>
-
-				</li>
-
-				<!-- SKILL TWO -->
-
-				<li class="skill">
-
-					<?php
-
-						$zerif_aboutus_feature2_nr = get_theme_mod('zerif_aboutus_feature2_nr','91');
-
-						if( !empty($zerif_aboutus_feature2_nr) ):
-
-							echo '<div class="skill-count">';
-
-								echo '<input type="text" value="'.$zerif_aboutus_feature2_nr.'" data-thickness=".2" class="skill2" tabindex="-1">';
-
-							echo '</div>';
-
-						endif;
-
-						$zerif_aboutus_feature2_title = get_theme_mod('zerif_aboutus_feature2_title',__('YOUR SKILL #2','zerif-lite'));
-						$zerif_aboutus_feature2_text = get_theme_mod('zerif_aboutus_feature2_text');
-
-						if( !empty($zerif_aboutus_feature2_title) ):
-							echo '<div class="section-legend">'.$zerif_aboutus_feature2_title.'</div>';
-						endif;
-
-						if( !empty($zerif_aboutus_feature2_text) ):
-							echo '<p>'.$zerif_aboutus_feature2_text.'</p>';
-						endif;
-
-					?>
-
-				</li>
-
-				<!-- SKILL THREE -->
-
-				<li class="skill">
-
-					<?php
-
-						$zerif_aboutus_feature3_nr = get_theme_mod('zerif_aboutus_feature3_nr','88');
-
-						if( !empty($zerif_aboutus_feature3_nr) ):
-
-							echo '<div class="skill-count">';
-
-								echo '<input type="text" value="'.$zerif_aboutus_feature3_nr.'" data-thickness=".2" class="skill3" tabindex="-1">';
-
-							echo '</div>';
-
-						endif;
-
-						$zerif_aboutus_feature3_title = get_theme_mod('zerif_aboutus_feature3_title',__('YOUR SKILL #3','zerif-lite'));
-						$zerif_aboutus_feature3_text = get_theme_mod('zerif_aboutus_feature3_text');
-
-						if( !empty($zerif_aboutus_feature3_title) ):
-							echo '<div class="section-legend">'.$zerif_aboutus_feature3_title.'</div>';
-						endif;
-
-						if( !empty($zerif_aboutus_feature3_text) ):
-							echo '<p>'.$zerif_aboutus_feature3_text.'</p>';
-						endif;
-
-					?>
-
-				</li>
-
-				<!-- SKILL FOUR -->
-
-				<li class="skill">
-
-					<?php
-
-						$zerif_aboutus_feature4_nr = get_theme_mod('zerif_aboutus_feature4_nr','95');
-
-						if( !empty($zerif_aboutus_feature4_nr) ):
-
-							echo '<div class="skill-count">';
-
-								echo '<input type="text" value="'.$zerif_aboutus_feature4_nr.'" data-thickness=".2" class="skill4" tabindex="-1">';
-
-							echo '</div>';
-
-						endif;
-
-						$zerif_aboutus_feature4_title = get_theme_mod('zerif_aboutus_feature4_title',__('YOUR SKILL #4','zerif-lite'));
-						$zerif_aboutus_feature4_text = get_theme_mod('zerif_aboutus_feature4_text');
-
-						if( !empty($zerif_aboutus_feature4_title) ):
-							echo '<div class="section-legend">'.$zerif_aboutus_feature4_title.'</div>';
-						endif;
-
-						if( !empty($zerif_aboutus_feature4_text) ):
-							echo '<p>'.$zerif_aboutus_feature4_text.'</p>';
-						endif;
-
-					?>
-
-				</li>
-
-			</ul>
-
-		</div> <!-- / END SKILLS COLUMN-->
 
 	</div> <!-- / END 3 COLUMNS OF ABOUT US-->
 

@@ -1,4 +1,4 @@
-<?php get_header(); 
+<?php get_header();
 
 if ( get_option( 'show_on_front' ) == 'page' ) {
     ?>
@@ -17,8 +17,8 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 				<main id="main" class="site-main" role="main">
 
 				<?php if ( have_posts() ) :
-				
-						while ( have_posts() ) : the_post(); 
+
+						while ( have_posts() ) : the_post();
 
 							/* Include the Post-Format-specific template for the content.
 							 * If you want to override this in a child theme, then include a file
@@ -27,14 +27,14 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 							get_template_part( 'content', get_post_format() );
 
-						endwhile; 
-						
+						endwhile;
+
 						zerif_paging_nav();
-						
+
 					else :
-					
-						get_template_part( 'content', 'none' ); 
-						
+
+						get_template_part( 'content', 'none' );
+
 					endif; ?>
 
 				</main><!-- #main -->
@@ -56,11 +56,11 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 	if(isset($_POST['submitted']) && !defined('PIRATE_FORMS_VERSION') && !shortcode_exists( 'pirate_forms' ) ) :
 
 			/* recaptcha */
-			
+
 			$zerif_contactus_sitekey = get_theme_mod('zerif_contactus_sitekey');
 
 			$zerif_contactus_secretkey = get_theme_mod('zerif_contactus_secretkey');
-			
+
 			$zerif_contactus_recaptcha_show = get_theme_mod('zerif_contactus_recaptcha_show');
 
 			if( isset($zerif_contactus_recaptcha_show) && $zerif_contactus_recaptcha_show != 1 && !empty($zerif_contactus_sitekey) && !empty($zerif_contactus_secretkey) ) :
@@ -75,8 +75,8 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 		        if( !$captcha ){
 
-		          $hasError = true;    
-		          
+		          $hasError = true;
+
 		        }
 
 		        $response = wp_remote_get( "https://www.google.com/recaptcha/api/siteverify?secret=".$zerif_contactus_secretkey."&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR'] );
@@ -156,15 +156,15 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 			if(!isset($hasError)):
 
 				$zerif_contactus_email = get_theme_mod('zerif_contactus_email');
-				
+
 				if( empty($zerif_contactus_email) ):
-				
+
 					$emailTo = get_theme_mod('zerif_email');
-				
+
 				else:
-					
+
 					$emailTo = $zerif_contactus_email;
-				
+
 				endif;
 
 				if(isset($emailTo) && $emailTo != ""):
@@ -183,19 +183,19 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 						$zerif_server_name = strtolower( $_SERVER['SERVER_NAME'] );
 						return in_array( $zerif_server_name, array( 'localhost', '127.0.0.1' ) );
 					}
-					
+
 					if ( zerif_is_localhost() ) {
-					
+
 						$headers = 'From: '.$name.' <'.$zerif_admin_email.'>' . "\r\n" . 'Reply-To: ' . $email;
-						
+
 					} else {
-					
+
 						if ( substr( $zerif_sitename, 0, 4 ) == 'www.' ) {
 							$zerif_sitename = substr( $zerif_sitename, 4 );
 						}
-						
+
 						$headers = 'From: '.$name.' <wordpress@'.$zerif_sitename.'>' . "\r\n" . 'Reply-To: ' . $email;
-						
+
 					}
 
 					wp_mail($emailTo, $subject, $body, $headers);
@@ -228,6 +228,25 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 <?php
 
+	/* ABOUT US */
+
+	$zerif_aboutus_show = get_theme_mod('zerif_aboutus_show');
+
+	if( isset($zerif_aboutus_show) && $zerif_aboutus_show != 1 ):
+
+		get_template_part( 'sections/about_us' );
+
+	endif;
+
+  /* OUR TEAM */
+
+  $zerif_ourteam_show = get_theme_mod('zerif_ourteam_show');
+
+  if( isset($zerif_ourteam_show) && $zerif_ourteam_show != 1 ):
+  	get_template_part( 'sections/our_team' );
+
+	endif;
+
 	/* OUR FOCUS SECTION */
 
 	$zerif_ourfocus_show = get_theme_mod('zerif_ourfocus_show');
@@ -242,25 +261,7 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 	get_template_part( 'sections/ribbon_with_bottom_button' );
 
-	/* ABOUT US */
 
-	$zerif_aboutus_show = get_theme_mod('zerif_aboutus_show');
-
-	if( isset($zerif_aboutus_show) && $zerif_aboutus_show != 1 ):
-
-		get_template_part( 'sections/about_us' );
-
-	endif;
-
-	/* OUR TEAM */
-
-	$zerif_ourteam_show = get_theme_mod('zerif_ourteam_show');
-
-	if( isset($zerif_ourteam_show) && $zerif_ourteam_show != 1 ):
-
-		get_template_part( 'sections/our_team' );
-
-	endif;
 
 	/* TESTIMONIALS */
 
