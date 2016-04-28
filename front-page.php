@@ -368,23 +368,23 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 								<input type="hidden" name="submitted" id="submitted" value="true" />
 
 								<div class="col-lg-4 col-sm-4 zerif-rtl-contact-name" data-scrollreveal="enter left after 0s over 1s">
-									<label for="myname" class="screen-reader-text"><?php _e( 'Your Name', 'zerif-lite' ); ?></label>
-									<input required="required" type="text" name="myname" id="myname" placeholder="<?php _e('Your Name','zerif-lite'); ?>" class="form-control input-box" value="<?php if(isset($_POST['myname'])) echo esc_attr($_POST['myname']);?>">
+									<label for="myname" class="screen-reader-text"><?php _e( 'Votre nom', 'zerif-lite' ); ?></label>
+									<input required="required" type="text" name="myname" id="myname" placeholder="<?php _e('Votre nom','zerif-lite'); ?>" class="form-control input-box" value="<?php if(isset($_POST['myname'])) echo esc_attr($_POST['myname']);?>">
 								</div>
 
 								<div class="col-lg-4 col-sm-4 zerif-rtl-contact-email" data-scrollreveal="enter left after 0s over 1s">
-									<label for="myemail" class="screen-reader-text"><?php _e( 'Your Email', 'zerif-lite' ); ?></label>
-									<input required="required" type="email" name="myemail" id="myemail" placeholder="<?php _e('Your Email','zerif-lite'); ?>" class="form-control input-box" value="<?php if(isset($_POST['myemail'])) echo is_email($_POST['myemail']) ? $_POST['myemail'] : ""; ?>">
+									<label for="myemail" class="screen-reader-text"><?php _e( 'Votre Email', 'zerif-lite' ); ?></label>
+									<input required="required" type="email" name="myemail" id="myemail" placeholder="<?php _e('Votre eMail','zerif-lite'); ?>" class="form-control input-box" value="<?php if(isset($_POST['myemail'])) echo is_email($_POST['myemail']) ? $_POST['myemail'] : ""; ?>">
 								</div>
 
 								<div class="col-lg-4 col-sm-4 zerif-rtl-contact-subject" data-scrollreveal="enter left after 0s over 1s">
-									<label for="mysubject" class="screen-reader-text"><?php _e( 'Subject', 'zerif-lite' ); ?></label>
-									<input required="required" type="text" name="mysubject" id="mysubject" placeholder="<?php _e('Subject','zerif-lite'); ?>" class="form-control input-box" value="<?php if(isset($_POST['mysubject'])) echo esc_attr($_POST['mysubject']);?>">
+									<label for="mysubject" class="screen-reader-text"><?php _e( 'Sujet', 'zerif-lite' ); ?></label>
+									<input required="required" type="text" name="mysubject" id="mysubject" placeholder="<?php _e('Sujet','zerif-lite'); ?>" class="form-control input-box" value="<?php if(isset($_POST['mysubject'])) echo esc_attr($_POST['mysubject']);?>">
 								</div>
 
 								<div class="col-lg-12 col-sm-12" data-scrollreveal="enter right after 0s over 1s">
-									<label for="mymessage" class="screen-reader-text"><?php _e( 'Your Message', 'zerif-lite' ); ?></label>
-									<textarea name="mymessage" id="mymessage" class="form-control textarea-box" placeholder="<?php _e('Your Message','zerif-lite'); ?>"><?php if(isset($_POST['mymessage'])) { echo esc_html($_POST['mymessage']); } ?></textarea>
+									<label for="mymessage" class="screen-reader-text"><?php _e( 'Votre message', 'zerif-lite' ); ?></label>
+									<textarea name="mymessage" id="mymessage" class="form-control textarea-box" placeholder="<?php _e('Votre message','zerif-lite'); ?>"><?php if(isset($_POST['mymessage'])) { echo esc_html($_POST['mymessage']); } ?></textarea>
 								</div>
 
 								<?php

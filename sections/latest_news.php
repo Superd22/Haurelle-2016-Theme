@@ -1,28 +1,28 @@
-<?php 
+<?php
 
 	$zerif_total_posts = get_option('posts_per_page'); /* number of latest posts to show */
-	
+
 	if( !empty($zerif_total_posts) && ($zerif_total_posts > 0) ):
-	
+
 		echo '<section class="latest-news" id="latestnews">';
-		
+
 			echo '<div class="container">';
 
 				/* SECTION HEADER */
-				
+
 				echo '<div class="section-header">';
 
 					$zerif_latestnews_title = get_theme_mod('zerif_latestnews_title');
 
 					/* title */
 					if( !empty($zerif_latestnews_title) ):
-					
+
 						echo '<h2 class="dark-text">' . $zerif_latestnews_title . '</h2>';
-						
+
 					else:
-					
+
 						echo '<h2 class="dark-text">' . __('Latest news','zerif-lite') . '</h2>';
-						
+
 					endif;
 
 					/* subtitle */
@@ -33,29 +33,29 @@
 						echo '<div class="dark-text section-legend">'.$zerif_latestnews_subtitle.'</div>';
 
 					endif;
-				
+
 				echo '</div><!-- END .section-header -->';
 
 				echo '<div class="clear"></div>';
-				
-				echo '<div id="carousel-homepage-latestnews" class="carousel slide" data-ride="carousel">';
-					
+
+				echo '<div id="carousel-homepage-latestnews" class="carousel slide vertical" data-ride="carousel">';
+
 					/* Wrapper for slides */
-					
-					echo '<div class="carousel-inner" role="listbox">';
-						
-						
+
+					echo '<div class="carousel-inner vertical" role="listbox">';
+
+
 						$zerif_latest_loop = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => $zerif_total_posts, 'order' => 'DESC','ignore_sticky_posts' => true ) );
-						
+
 						$newSlideActive = '<div class="item active">';
 						$newSlide 		= '<div class="item">';
 						$newSlideClose 	= '<div class="clear"></div></div>';
 						$i_latest_posts= 0;
-						
+
 						if ( $zerif_latest_loop->have_posts() ) :
-						
+
 							while ( $zerif_latest_loop->have_posts() ) : $zerif_latest_loop->the_post();
-								
+
 								$i_latest_posts++;
 
 								if ( !wp_is_mobile() ){
@@ -63,24 +63,25 @@
 										if($i_latest_posts == 1){
 											echo $newSlideActive;
 										}
-										else if($i_latest_posts % 4 == 1){
+										else if($i_latest_posts % 2 == 1){
 											echo $newSlide;
 										}
-									
-										echo '<div class="col-sm-3 latestnews-box">';
+										setlocale (LC_TIME, 'fr_FR.utf8','fra');
+										echo '<div class="col-md-2 latestnews-date">'.get_the_date("j M y").'</div>';
+										echo '<div class="col-md-10 latestnews-box">';
 
 											echo '<div class="latestnews-img">';
-											
+
 												echo '<a class="latestnews-img-a" href="'.get_permalink().'" title="'.get_the_title().'">';
 
 													if ( has_post_thumbnail() ) :
 														the_post_thumbnail();
 													else:
 														echo '<img src="'.esc_url( get_template_directory_uri() ).'/images/blank-latestposts.png" alt="'.get_the_title().'" />';
-													endif; 
+													endif;
 
 												echo '</a>';
-												
+
 											echo '</div>';
 
 											echo '<div class="latesnews-content">';
@@ -89,19 +90,20 @@
 
 												the_excerpt();
 
+												echo "<a href='".get_permalink()."'>En savoir plus</a>";
 											echo '</div>';
 
 										echo '</div><!-- .latestnews-box"> -->';
 
-										/* after every four posts it must closing the '.item' */
-										if($i_latest_posts % 4 == 0){
+										/* after every two posts it must closing the '.item' */
+										if($i_latest_posts % 2 == 0){
 											echo $newSlideClose;
 										}
 
 								} else {
 
-									if( $i_latest_posts == 1 ) $active = 'active'; else $active = ''; 
-			
+									if( $i_latest_posts == 1 ) $active = 'active'; else $active = '';
+
 									echo '<div class="item '.$active.'">';
 										echo '<div class="col-md-3 latestnews-box">';
 											echo '<div class="latestnews-img">';
@@ -110,7 +112,7 @@
 														the_post_thumbnail();
 													else:
 														echo '<img src="'.esc_url( get_template_directory_uri() ).'/images/blank-latestposts.png" alt="'.get_the_title().'" />';
-													endif; 
+													endif;
 												echo '</a>';
 											echo '</div>';
 											echo '<div class="latesnews-content">';
@@ -120,10 +122,10 @@
 										echo '</div>';
 									echo '</div>';
 								}
-							
+
 							endwhile;
-						
-						endif;	
+
+						endif;
 
 						if ( !wp_is_mobile() ) {
 
@@ -134,20 +136,21 @@
 
 						}
 
-						wp_reset_postdata(); 
-						
-					echo '</div><!-- .carousel-inner -->';
+						wp_reset_postdata();
 
-					/* Controls */
-					echo '<a class="left carousel-control" href="#carousel-homepage-latestnews" role="button" data-slide="prev">';
-						echo '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>';
-						echo '<span class="sr-only">'.__('Previous','zerif-lite').'</span>';
-					echo '</a>';
-					echo '<a class="right carousel-control" href="#carousel-homepage-latestnews" role="button" data-slide="next">';
-						echo '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>';
-						echo '<span class="sr-only">'.__('Next','zerif-lite').'</span>';
-					echo '</a>';
-				echo '</div><!-- #carousel-homepage-latestnews -->';
+					echo '</div><!-- .carousel-inner -->';
+					echo "<div class='carousel-controls-container'>";
+						/* Controls */
+						echo '<a class="left carousel-control" href="#carousel-homepage-latestnews" role="button" data-slide="prev">';
+							echo '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>';
+							echo '<span class="sr-only">'.__('Previous','zerif-lite').'</span>';
+						echo '</a>';
+						echo '<a class="right carousel-control" href="#carousel-homepage-latestnews" role="button" data-slide="next">';
+							echo '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>';
+							echo '<span class="sr-only">'.__('Next','zerif-lite').'</span>';
+						echo '</a>';
+					echo '</div><!-- #carousel-homepage-latestnews -->';
+				echo "</div>";
 
 			echo '</div><!-- .container -->';
 		echo '</section>';
