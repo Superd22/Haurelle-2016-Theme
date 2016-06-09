@@ -1304,4 +1304,3 @@ msgstr ""
 #: sections/latest_news.php:148
 msgid "Next"
 msgstr ""
-

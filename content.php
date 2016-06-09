@@ -51,15 +51,15 @@
 	<div class="entry-summary">
 
 		<?php the_excerpt(); ?>
-		
+
 	<?php else : ?>
 
 	<div class="entry-content">
 
-		<?php 
+		<?php
 
 			the_excerpt();
-			
+
 			wp_link_pages( array(
 
 				'before' => '<div class="page-links">' . __( 'Pages:', 'zerif-lite' ),
@@ -113,7 +113,7 @@
 
 		<?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
 
-		<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'zerif-lite' ), __( '1 Comment', 'zerif-lite' ), __( '% Comments', 'zerif-lite' ) ); ?></span>
+		<span class="comments-link"><?php comments_popup_link( __( '', 'zerif-lite' ), __( '', 'zerif-lite' ), __( '', 'zerif-lite' ) ); ?></span>
 
 		<?php endif; ?>
 

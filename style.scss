@@ -865,15 +865,15 @@ a:active {
 	float: none;
 }
 .widget .widget-title:before{
-	position: absolute;
+	width: 10px;
+	height: 20px;
 	margin: auto;
 	z-index: 1;
 	content: "";
-	width: 35%;
-	height: 2px;
 	background: darkgoldenrod;
-	bottom: -9px;
-	left: 0;
+	float: left;
+	margin-right: 10px;
+	margin-top: 1px;
 }
 
 .widget-area {
@@ -1026,9 +1026,13 @@ h1.entry-title {
 	font-size: 3em;
 	margin-top: 0;
 	padding-top: 0;
-	position:relative;
+	position: relative;
+	letter-spacing: 20px;
 	display: inline-block;
 	margin-bottom: 30px !important;
+	text-transform: uppercase;
+	padding: 10px 20px;
+	line-height:1em;
 	&:before {
 		content: "";
 		position: absolute;
@@ -1037,7 +1041,7 @@ h1.entry-title {
 		width: 80%;
 		height: 3px;
 		background: darkgoldenrod;
-		bottom: -25px;
+		bottom: 0px;
 		left: 10%;
 	}
 }
