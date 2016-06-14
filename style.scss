@@ -853,7 +853,7 @@ a:active {
 	margin-bottom: 30px;*/
 }
 .widget .widget-title {
-	color: #404040;
+	color: darkgoldenrod;
 	text-transform: uppercase;
 	margin-bottom: 30px;
 	font-weight: bold;
@@ -863,17 +863,6 @@ a:active {
 	margin-top: 30px;
 	padding-bottom: 5px;
 	float: none;
-}
-.widget .widget-title:before{
-	width: 10px;
-	height: 20px;
-	margin: auto;
-	z-index: 1;
-	content: "";
-	background: darkgoldenrod;
-	float: left;
-	margin-right: 10px;
-	margin-top: 1px;
 }
 
 .widget-area {
@@ -1033,17 +1022,6 @@ h1.entry-title {
 	text-transform: uppercase;
 	padding: 10px 20px;
 	line-height:1em;
-	&:before {
-		content: "";
-		position: absolute;
-		margin: auto;
-		z-index: 1;
-		width: 80%;
-		height: 3px;
-		background: darkgoldenrod;
-		bottom: 0px;
-		left: 10%;
-	}
 }
 .entry-meta{
 	margin-top: 10px;
