@@ -1494,6 +1494,7 @@ object {
 }
 .navbar-inverse .navbar-nav>li>a {
 	color: #404040;
+	font-weight:bolder;
 	padding: 0;
 	line-height: 35px;
 }
@@ -1689,22 +1690,18 @@ ul.nav > li.current_page_item.current > a:before {
 }
 .intro-text{
 	text-align: center;
-	    color: #FFF;
-	    line-height: 65px;
-	    font-size: 9em;
-	    z-index: 0;
-	    font-weight: normal;
-	    text-transform: uppercase;
-	    float: none;
-	    padding-top: 6px;
-	    -webkit-font-smoothing: subpixel-antialiased;
-	    -moz-osx-font-smoothing: grayscale;
+	color: #FFF;
+	line-height: 65px;
+	font-size: 9em;
+	z-index: 0;
+	font-weight: normal;
+	text-transform: uppercase;
+	padding-top: 6px;
 }
 .intro-sub-text {
 	font-size: 26px;
 	text-transform: uppercase;
-	letter-spacing: 12.9px;
-  margin-left: 167px;
+	letter-spacing: 15px;
 	margin-top: 16px;
 }
 /* Short Messages */

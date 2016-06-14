@@ -369,7 +369,7 @@ function zerif_register_widgets() {
 
 		if( $zerif_lite_sidebar == 'sidebar-ourfocus' ):
 
-			$zerif_lite_name = __('Our focus section widgets', 'zerif-lite');
+			$zerif_lite_name = __('Compétences', 'zerif-lite');
 
 		elseif( $zerif_lite_sidebar == 'sidebar-testimonials' ):
 
@@ -377,7 +377,7 @@ function zerif_register_widgets() {
 
 		elseif( $zerif_lite_sidebar == 'sidebar-ourteam' ):
 
-			$zerif_lite_name = __('Our team section widgets', 'zerif-lite');
+			$zerif_lite_name = __('Membres de l\'équipe', 'zerif-lite');
 
 		else:
 
@@ -556,7 +556,7 @@ class zerif_ourfocus extends WP_Widget {
 	public function __construct() {
 		parent::__construct(
 			'ctUp-ads-widget',
-			__( 'Zerif - Our focus widget', 'zerif-lite' )
+			__( 'Compétence', 'zerif-lite' )
 		);
 	}
 
@@ -896,7 +896,7 @@ class zerif_team_widget extends WP_Widget{
 	public function __construct() {
 		parent::__construct(
 			'zerif_team-widget',
-			__( 'Zerif - Team member widget', 'zerif-lite' )
+			__( 'Membre de l\'équipe', 'zerif-lite' )
 		);
 	}
 

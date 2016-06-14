@@ -811,7 +811,7 @@ msgstr ""
 #: inc/customizer.php:434
 #: inc/customizer.php:551
 msgid "Big title section"
-msgstr ""
+msgstr "Grand titre"
 
 #: inc/customizer.php:438
 #: inc/customizer.php:754
