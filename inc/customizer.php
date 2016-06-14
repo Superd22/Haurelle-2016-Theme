@@ -997,6 +997,111 @@ function zerif_customize_register( $wp_customize ) {
 			'priority'   	=> 3,
 	));
 
+	/**********************************************/
+	    /**********	TESTIMONIALS SECTION **************/
+		/**********************************************/
+		if ( class_exists( 'WP_Customize_Panel' ) ):
+
+			$wp_customize->add_panel( 'panel_testimonials', array(
+				'priority' => 36,
+				'capability' => 'edit_theme_options',
+				'theme_supports' => '',
+				'title' => __( 'Testimonials section', 'zerif-lite' )
+			) );
+
+			$wp_customize->add_section( 'zerif_testimonials_section' , array(
+					'title'       => __( 'Testimonials section', 'zerif-lite' ),
+					'priority'    => 1,
+					'panel'       => 'panel_testimonials'
+			));
+			/* testimonials show/hide */
+			$wp_customize->add_setting( 'zerif_testimonials_show', array('sanitize_callback' => 'zerif_sanitize_text'));
+			$wp_customize->add_control(
+				'zerif_testimonials_show',
+				array(
+					'type' => 'checkbox',
+					'label' => __('Hide testimonials section?','zerif-lite'),
+					'section' => 'zerif_testimonials_section',
+					'priority'    => 1,
+				)
+			);
+			/* testimonial pinterest layout */
+			$wp_customize->add_setting( 'zerif_testimonials_pinterest_style', array('sanitize_callback' => 'zerif_sanitize_text'));
+			$wp_customize->add_control(
+				'zerif_testimonials_pinterest_style',
+				array(
+					'type' 			=> 'checkbox',
+					'label' 		=> __('Use pinterest layout?','zerif-lite'),
+					'section' 		=> 'zerif_testimonials_section',
+					'priority'    	=> 2,
+				)
+			);
+			/* testimonials title */
+			$wp_customize->add_setting( 'zerif_testimonials_title', array('sanitize_callback' => 'zerif_sanitize_text','default' => __('Testimonials','zerif-lite')));
+			$wp_customize->add_control( 'zerif_testimonials_title', array(
+						'label'    => __( 'Title', 'zerif-lite' ),
+						'section'  => 'zerif_testimonials_section',
+						'settings' => 'zerif_testimonials_title',
+						'priority'    => 2,
+			));
+			/* testimonials subtitle */
+			$wp_customize->add_setting( 'zerif_testimonials_subtitle', array('sanitize_callback' => 'zerif_sanitize_text'));
+			$wp_customize->add_control( 'zerif_testimonials_subtitle', array(
+					'label'    => __( 'Testimonials subtitle', 'zerif-lite' ),
+					'section'  => 'zerif_testimonials_section',
+					'settings' => 'zerif_testimonials_subtitle',
+					'priority'    => 3,
+			));
+
+		else:
+
+			$wp_customize->add_section( 'zerif_testimonials_section' , array(
+					'title'       => __( 'Testimonials section', 'zerif-lite' ),
+					'priority'    => 36,
+					'description' => __( 'The main content of this section is customizable in: Customize -> Widgets -> Testimonials section. There you must add the "Zerif - Testimonial widget"', 'zerif-lite' )
+			));
+			/* testimonials show/hide */
+			$wp_customize->add_setting( 'zerif_testimonials_show', array('sanitize_callback' => 'zerif_sanitize_text'));
+			$wp_customize->add_control(
+				'zerif_testimonials_show',
+				array(
+					'type' => 'checkbox',
+					'label' => __('Hide testimonials section?','zerif-lite'),
+					'section' => 'zerif_testimonials_section',
+					'priority'    => 1,
+				)
+			);
+			/* testimonial pinterest layout */
+			$wp_customize->add_setting( 'zerif_testimonials_pinterest_style', array('sanitize_callback' => 'zerif_sanitize_text'));
+			$wp_customize->add_control(
+				'zerif_testimonials_pinterest_style',
+				array(
+					'type' 			=> 'checkbox',
+					'label' 		=> __('Use pinterest layout?','zerif-lite'),
+					'section' 		=> 'zerif_testimonials_section',
+					'priority'    	=> 2,
+				)
+			);
+			/* testimonials title */
+			$wp_customize->add_setting( 'zerif_testimonials_title', array('sanitize_callback' => 'zerif_sanitize_text','default' => __('Testimonials','zerif-lite')));
+			$wp_customize->add_control( 'zerif_testimonials_title', array(
+						'label'    => __( 'Title', 'zerif-lite' ),
+						'section'  => 'zerif_testimonials_section',
+						'settings' => 'zerif_testimonials_title',
+						'priority'    => 2,
+			));
+			/* testimonials subtitle */
+			$wp_customize->add_setting( 'zerif_testimonials_subtitle', array('sanitize_callback' => 'zerif_sanitize_text'));
+			$wp_customize->add_control( 'zerif_testimonials_subtitle', array(
+					'label'    => __( 'Testimonials subtitle', 'zerif-lite' ),
+					'section'  => 'zerif_testimonials_section',
+					'settings' => 'zerif_testimonials_subtitle',
+					'priority'    => 3,
+			));
+
+		endif;
+
+
 	/*******************************************************/
     /************	CONTACT US SECTION *********************/
 	/*******************************************************/
@@ -1090,40 +1195,6 @@ function zerif_customize_register( $wp_customize ) {
 				'settings' => 'zerif_contactus_secretkey',
 				'priority'    => 8,
 	));
-
-	/* Google maps section */
-
-	$wp_customize->add_section( 'zerif_googlemap_section' , array(
-					'title'       => __( 'Google maps section', 'zerif-lite' ),
-					'priority'    => 120
-	));
-
-	$wp_customize->add_setting(
-        'zerif_googlemap_section', array('sanitize_callback' => 'zerif_sanitize_pro_version')
-	);
-
-	$wp_customize->add_control( new Zerif_Theme_Support_Googlemap( $wp_customize, 'zerif_googlemap_section',
-	    array(
-	        'section' => 'zerif_googlemap_section',
-	   )
-	));
-	/* Pricing section */
-	$wp_customize->add_section( 'zerif_pricing_section' , array(
-					'title'       => __( 'Pricing section', 'zerif-lite' ),
-					'priority'    => 121
-	));
-
-	$wp_customize->add_setting(
-        'zerif_pricing_section', array('sanitize_callback' => 'zerif_sanitize_pro_version')
-	);
-
-	$wp_customize->add_control( new Zerif_Theme_Support_Pricing( $wp_customize, 'zerif_pricing_section',
-	    array(
-	        'section' => 'zerif_pricing_section',
-	   )
-	));
-
-
 }
 add_action( 'customize_register', 'zerif_customize_register' );
 /**
